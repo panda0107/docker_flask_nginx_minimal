@@ -1,6 +1,9 @@
 # Flask, Nginx, & Docker minimal example
 
-A minimal example of a docker container running both flask and nginx together. Flask is setup as a dynamic webserver and nginx is setup for static file hosting. Taking the burden off of python to serve static files is important for performance. Supervisord is used to manage them. The code is commented.
+A minimal example of a docker container running both flask and nginx. Supervisord is required to manage them both since docker only allows for one entrypoint / cmd. The code is well commented.
+
+#### Why?
+For performance reasons, Python should not serve static files. The usual way to manage this is to run multiple containers or setup a good CDN. A good CDN is not always enough and I believe that running an entire application in a single container is simpler and more maintainable that trying to manage multiple containers of different types. I built this in the hope that others might find it useful.
 
 To build:
 
